@@ -1,0 +1,40 @@
+<h1>Editar tarea</h1>
+
+<form action="<?php echo APP_URL . "tareas/editar"; ?>" method="POST">
+    <input type="hidden" name="id" value="<?php echo $this->tarea["id"]; ?>">
+    <p>
+        <label for="nombre">Nombre</label>
+        <input type="text" class="form-control" name="nombre" value="<?php echo $this->tarea["nombre"]; ?>">
+    </p>
+    <p>
+        <label for="descripcion">Descripción</label>
+        <textarea name="descripcion" class="form-control"><?php echo $this->tarea["descripcion"]; ?></textarea>
+    </p>
+    <p>
+        <label for="fecha">Fecha</label>
+        <input type="date" name="fecha" class="form-control" value="<?php echo $this->tarea["fecha"]; ?>">
+    </p>
+    <p>
+        <label for="prioridad">Prioridad</label>
+        <input type="range" name="prioridad" class="form-control" min="0" max="10"
+               value="<?php echo $this->tarea["prioridad"]; ?>">
+    </p>
+    <p>
+        <label for="categoria">Categoria</label>
+        <select name="categoria_id" class="form-control">
+            <?php foreach ($this->categorias as $categoria) {
+                if ($this->tarea["categoria_id"] == $categoria["id"]) { ?>
+                    <option selected value="<?php echo $categoria["id"]; ?>">
+                        <?php echo $categoria["nombre"]; ?></option>
+                    <?php
+                } else { ?>
+                    <option value="<?php echo $categoria["id"]; ?>">
+                        <?php echo $categoria["nombre"]; ?></option>
+                <?php } ?>
+            <?php } ?>
+        </select>
+    </p>
+    <p>
+        <input type="submit" value="Guardar tarea" class="btn-primary" onclick="if(!confirm('¿Desea continuar con el guardado?')) return false;">
+    </p>
+</form>

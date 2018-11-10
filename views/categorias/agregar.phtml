@@ -1,0 +1,15 @@
+<h2>Agregar categoría</h2>
+<div class="row">
+    <div class="col-sm-6">
+        <form action="<?php echo APP_URL."categorias/agregar"; ?>" method="POST">
+            <p>
+                <label for="nombre">Nombre</label>
+                <input type="text" name="nombre" class="form-control">
+            </p>
+            <p>
+                <input class="btn-primary" type="submit" value="Guardar categoria" onclick="if(!confirm('¿Desea continuar con el guardado?')) return false;">
+            </p>
+        </form>
+    </div>
+    <div class="col-sm-6"></div>
+</div>

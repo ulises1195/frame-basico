@@ -1,0 +1,36 @@
+<h2>Agregar tarea</h2>
+<div class="row">
+    <div class="col-sm-6">
+        <form action="<?php echo APP_URL."tareas/agregar"; ?>" method="POST">
+            <p>
+                <label for="nombre">Nombre</label>
+                <input type="text" name="nombre" class="form-control">
+            </p>
+            <p>
+                <label for="descripcion">Descripción</label>
+                <textarea name="descripcion" class="form-control"></textarea>
+            </p>
+            <p>
+                <label for="fecha">Fecha</label>
+                <input type="date" name="fecha" value="<?php echo date("Y-m-d"); ?>" class="form-control">
+            </p>
+            <p>
+                <label for="prioridad">Prioridad</label>
+                <input type="range" name="prioridad" min="0" max="10" class="form-control">
+            </p>
+            <p>
+                <label for="categoria">Categoria</label>
+                <select name="categoria_id" class="form-control">
+                    <?php foreach ($this->categorias as $categoria) {?>
+                    <option value="<?php echo $categoria["id"]; ?>">
+                        <?php echo $categoria["nombre"]; ?></option>
+                    <?php } ?>
+                </select>
+            </p>
+            <p>
+                <input class="btn-primary" type="submit" value="Guardar tarea" onclick="if(!confirm('¿Desea continuar con el guardado?')) return false;">
+            </p>
+        </form>
+    </div>
+    <div class="col-sm-6"></div>
+</div>

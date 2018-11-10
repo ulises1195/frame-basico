@@ -1,0 +1,45 @@
+<div class="row">
+    <div class="col-sm-8">
+        <ul class="nav nav-pills nav-justified">
+            <li role="presentation"><a href="<?php echo APP_URL . "tareas/index"; ?>">Tareas</a></li>
+            <li role="presentation" class="active"><a href="<?php echo APP_URL . "categorias/index"; ?>">Categorías</a>
+            </li>
+        </ul>
+    </div>
+    <div class="col-sm-8"><h3>Listado de Categorías</h3></div>
+</div>
+
+</br>
+
+<div class="table-responsive">
+    <table class="table">
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Acción</th>
+        </tr>
+        <?php foreach ($this->categorias as $categoria): ?>
+            <tr>
+                <td><?php echo $categoria["id"]; ?></td>
+                <td><?php echo $categoria["nombre"]; ?></td>
+                <td>
+                    <a href="<?php echo APP_URL . "categorias/editar/" . $categoria["id"]; ?>">
+                        <span class="glyphicon glyphicon-edit"> </span>
+                    </a> |
+                    <a onclick="if(!confirm('¿Está seguro que desea eliminar la categoría?')) return false;"
+                       href="<?php echo APP_URL . "categorias/eliminar/" . $categoria["id"]; ?>">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </a>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    </table>
+</div>
+<div class="col-sm-8">
+    <a href="<?php echo APP_URL . "categorias/agregar"; ?>">
+        <button type="button" class="btn-primary add">
+            <span class="glyphicon glyphicon-plus">&nbsp;Categorías</span>
+        </button>
+    </a>
+</div>
+</div>

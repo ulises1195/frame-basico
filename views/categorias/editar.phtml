@@ -1,0 +1,12 @@
+<h1>Editar categoría</h1>
+
+<form action="<?php echo APP_URL."categorias/editar"; ?>" method="POST">
+    <input type="hidden" name="id" value="<?php echo $this->categoria["id"]; ?>">
+    <p>
+        <label for="nombre">Nombre</label>
+        <input type="text" class="form-control" name="nombre" value="<?php echo $this->categoria["nombre"]; ?>">
+    </p>
+    <p>
+        <input type="submit" value="Guardar categoría" class="btn-primary add" onclick="if(!confirm('¿Desea guardar cambios?')) return false;">
+    </p>
+</form>
